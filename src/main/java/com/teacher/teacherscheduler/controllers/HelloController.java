@@ -12,6 +12,6 @@ public class HelloController {
     @RequestMapping(value="")
     @ResponseBody
     public String index(){
-        return "Hello World";
+        return "Hello testing";
     }
 }
