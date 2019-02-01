@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3b3edaf-de43-45bb-9a8e-081e23d47ea4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/viewPeriod.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.5.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.5.1/taskHistory/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5.1/taskHistory/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.5.1/taskHistory/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5.1/taskHistory/fileSnapshots.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.5.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/3.5.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.5.1/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/com/teacher/teacherscheduler/controllers/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/com/teacher/teacherscheduler/controllers/HelloController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/teacher/teacherscheduler/controllers/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/teacher/teacherscheduler/controllers/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/templates/viewPeriod.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/templates/viewPeriod.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/viewPeriod.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/viewPeriod.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -62,16 +60,18 @@
     <session id="1365436510">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.23" value="1" />
+          <entry key="project.open.time.25" value="1" />
           <entry key="project.open.time.31" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="2" />
+          <entry key="css" value="2" />
           <entry key="gradle" value="1" />
           <entry key="gradlew" value="1" />
           <entry key="html" value="1" />
@@ -82,6 +82,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="2" />
+          <entry key="CSS" value="2" />
           <entry key="Groovy" value="1" />
           <entry key="HTML" value="1" />
           <entry key="JAVA" value="1" />
@@ -92,16 +93,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="class" value="7" />
-          <entry key="html" value="89" />
-          <entry key="java" value="117" />
+          <entry key="html" value="400" />
+          <entry key="java" value="132" />
           <entry key="properties" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CLASS" value="7" />
-          <entry key="HTML" value="89" />
-          <entry key="JAVA" value="117" />
+          <entry key="HTML" value="400" />
+          <entry key="JAVA" value="132" />
           <entry key="Properties" value="2" />
         </counts>
       </usages-collector>
@@ -109,25 +110,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/teacher/teacherscheduler/controllers/HelloController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="33" lean-forward="true" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+            <state relative-caret-position="117">
+              <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#543#544#0" expanded="true" />
                 <element signature="e#579#580#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/viewPeriod.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+            <state relative-caret-position="782">
+              <caret line="46" column="8" lean-forward="true" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -472,14 +472,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/build/resources/main/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/viewPeriod.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/teacher/teacherscheduler/controllers/HelloController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/css/viewstyle.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/viewPeriod.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="346" />
-    <option name="width" value="1027" />
+    <option name="x" value="576" />
+    <option name="width" value="797" />
     <option name="height" value="775" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -488,8 +489,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -539,15 +538,30 @@
               <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="teacher-scheduler" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teacher-scheduler" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548711728472" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549056273078" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rachw_000\Desktop\teacher-scheduler\src\main\resources\static" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -599,11 +613,20 @@
     </task>
     <servers />
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25718608" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -612,11 +635,11 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3276923" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3276923" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3276923" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
@@ -631,6 +654,9 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Maven Projects" order="8" />
     </layout>
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -665,20 +691,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/teacher/teacherscheduler/controllers/HelloController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="33" lean-forward="true" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+        <state relative-caret-position="117">
+          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#543#544#0" expanded="true" />
             <element signature="e#579#580#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/css/viewstyle.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/viewPeriod.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+        <state relative-caret-position="782">
+          <caret line="46" column="8" lean-forward="true" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
         </state>
       </provider>
     </entry>
