@@ -16,15 +16,17 @@ public class Student {
 
 
     @NotNull
-    @Size(min=1, max = 15, message="please enter valid name")
+    @Size(min=1, max = 15, message="Please enter valid Name")
     private String name;
 
 
     @NotNull
-    @Size(min=1, max = 15)
+    @Size(min=1, max = 2, message="Please enter valid grade")
     private String grade;
 
     @NotNull
+
+    @Size(min=3,max=25, message= "Please enter valid emailID")
     private String emailId ;
 
     // Default constructor is used for main
