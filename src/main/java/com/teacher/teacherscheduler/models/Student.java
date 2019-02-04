@@ -1,5 +1,7 @@
 package com.teacher.teacherscheduler.models;
 
+import org.hibernate.validator.constraints.Email;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -25,8 +27,9 @@ public class Student {
     private String grade;
 
     @NotNull
+    @Email
 
-    @Size(min=3,max=25, message= "Please enter valid emailID")
+//  @Size(min=3,max=25, message= "Please enter valid emailID")
     private String emailId ;
 
     // Default constructor is used for main
