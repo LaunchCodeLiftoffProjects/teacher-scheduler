@@ -53,4 +53,25 @@ public class StudentController {
         studentDao.save(newStudent);
         return "redirect:";
     }
+    @RequestMapping(value= "edit/{id}", method = RequestMethod.GET)
+            public String displayEditform(Model model,@PathVariable int id) {
+        model.addAttribute("title", "Edit Student");
+        model.addAttribute("students", studentDao.findOne(id));
+        return "student/edit";
+    }
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
+    public String displayEditform(Model model,Student newStudent,@PathVariable int id, @RequestParam String name,@RequestParam String grade,@RequestParam String emailId ){
+        model.addAttribute("students", studentDao.findOne(id));
+       Student stu = studentDao.findOne(id);
+        newStudent.setStudent(stu);
+        studentDao.save(newStudent);
+        return "redirect:";
+
+
+
+
+
+
+
+}
     }
