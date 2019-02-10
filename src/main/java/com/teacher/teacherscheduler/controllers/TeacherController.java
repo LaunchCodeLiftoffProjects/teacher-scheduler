@@ -24,7 +24,7 @@ public class TeacherController {
     private TeacherDao teacherDao; // Data Access Object  --we will send the data from database by creating Autowired.
 
 
-    @RequestMapping(value ="")
+    @RequestMapping(value = "")
     public String index(Model model) {
         //model.addAttribute("title", "Create Teacher");
         model.addAttribute("teachers", teacherDao.findAll());
@@ -40,6 +40,7 @@ public class TeacherController {
         return "teacher/add";
 
     }
+
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddTeacherForm(@ModelAttribute @Valid Teacher newTeacher,
                                         Errors errors,
@@ -52,6 +53,47 @@ public class TeacherController {
 
 
         teacherDao.save(newTeacher);
+        return "redirect:";
+    }
+
+    @RequestMapping(value = "remove", method = RequestMethod.GET)
+    public String displayRemoveTeacherForm(Model model) {
+        model.addAttribute("title", "Remove Teacher");
+        model.addAttribute("teachers", teacherDao.findAll());
+        return "teacher/remove";
+
+    }
+
+    @RequestMapping(value = "remove", method = RequestMethod.POST)
+    public String processRemoveTeacherForm(@RequestParam int[] teacherIds) {
+       for (int teacherId : teacherIds){
+           teacherDao.delete(teacherId);
+       }
+       return "redirect:";
+
+    }
+
+
+    @RequestMapping(value = "update/{teacherId}", method = RequestMethod.GET)
+    public String displayUpdateTeacherForm(Model model,@PathVariable int teacherId) {
+        model.addAttribute("title", "Update Teacher");
+
+        model.addAttribute("teacher",teacherDao.findOne(teacherId)) ;
+         model.addAttribute("teachers", teacherDao.findAll());
+        return "teacher/update";
+
+    }
+
+    @RequestMapping(value = "update", method = RequestMethod.POST)
+    public String processUpdateTeacherForm(@RequestParam String name, @RequestParam String emailId,
+                                           @RequestParam int teacherId) {
+
+        Teacher teacher = teacherDao.findOne(teacherId);
+        teacher.setName(name);
+        teacher.setEmailId(emailId);
+
+
+        teacherDao.save(teacher);
         return "redirect:";
     }
 }

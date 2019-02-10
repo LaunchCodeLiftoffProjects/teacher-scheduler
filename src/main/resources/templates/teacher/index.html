@@ -18,9 +18,10 @@
         <td th:text="${teacher.name}"></td>
 
         <td th:text="${teacher.emailId}"></td>
-        <td><a th:href="@{'/teacher/edit/' + ${teacherId}}">update</a></td>
+        <td><a th:href="@{'/teacher/update/' + ${teacher.id}}">update</a></td>
     </tr>
 </table>
-<a href="/teacher/add">Add</a>
+<a href="/teacher/add" style="color:green"><b>Add </b></a> |
+<a href="/teacher/remove" style="color:green"><b>Remove</b></a>
 </body>
 </html>
