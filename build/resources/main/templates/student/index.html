@@ -13,15 +13,17 @@
         <th>Name</th>
         <th>Grade</th>
         <th>EmailId</th>
+        <th>Edit</th>
     </tr>
 
     <tr th:each="student : ${students}">
         <td th:text="${student.name}"></td>
         <td th:text="${student.grade}"></td>
         <td th:text="${student.emailId}"></td>
-        <td><a th:href="@{'/student/edit/' + ${studentId}}">edit</a></td>
+        <td><a th:href="@{'/student/edit/' + ${student.id}}">edit</a></td>
     </tr>
 </table>
     <a href="/student/add">Add</a>
+    <a href="/student/remove">Remove</a>
 </body>
 </html>

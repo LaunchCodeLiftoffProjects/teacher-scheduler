@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<h1 th:text="${title}"> Default Title </h1>
+<body>
+<p>Please select student to remove</p>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="margin-left:100px;">
+    <table class ="table">
+
+
+<tr>
+        <th>Name</th>
+        <th>Grade</th>
+        <th>EmailId</th>
+</tr></table>
+
+
+    <tr>
+    <div th:each="student :${students}" class="checkbox">
+        <input type="checkbox" name="studentIds" th:value="${student.id}" th:id="${student.id}"/>
+
+        <label th:for="${student.id}" th:text="${student.name}"    > </label>
+        <label th:for="${student.id}" th:text="${student.grade}"    ></label>
+        <label th:for="${student.id}" th:text="${student.emailId}"  ></label>
+
+
+    </div>
+
+    </tr>
+
+<input type="submit" value="Remove Student" />
+
+</form>
+
+</body>
+</html>

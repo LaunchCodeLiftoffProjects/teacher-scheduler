@@ -7,25 +7,25 @@
 <body>
 <p> Please update the Student details</p>
 <br/>
-<form method="post" style="max-width:600px;"  action = "student/edit{id}" th:object="${student}">
+<form method="post" style="max-width:600px;"  action = "/student/edit" >
     <div class="form-group">
         <label th:for="name">Name</label>
-        <input class="form-control" th:field="*{name}" />
-        <span th:errors="*{name}" class="error"></span>
+        <input class="form-control" th:field="*{student.name}" />
+        <span th:errors="*{student.name}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="grade">Grade</label>
-        <input class="form-control" th:field="*{grade}" />
-        <span th:errors="*{grade}" class="error"></span>
+        <input class="form-control" th:field="*{student.grade}" />
+        <span th:errors="*{student.grade}" class="error"></span>
     </div>
 
     <div class="form-group">
         <label th:for="emailId">EmailId</label>
-        <input class="form-control" th:field="*{emailId}" />
-        <span th:errors="*{emailId}" class="error"></span>
+        <input class="form-control" th:field="*{student.emailId}" />
+        <span th:errors="*{student.emailId}" class="error"></span>
     </div>
-    <input type="hidden" name="id" th:value="${id}"/>
+    <input type="hidden" name="id" th:value="*{student.id}"/>
     <input type="submit" value="Edit Student" />
 </form>
 </body>
