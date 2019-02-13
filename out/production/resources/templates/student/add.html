@@ -20,12 +20,14 @@
     </div>
 
     <div class="form-group">
+
         <label th:for="emailId">EmailId</label>
         <input class="form-control" th:field="*{emailId}" />
         <span th:errors="*{emailId}" class="error"></span>
     </div>
 
-<input type="submit" value="Add Student" />
+    <button type="submit" class="btn btn-primary">Add Student</button>
+<!--<input type="submit" value="Add Student" style="margin-left: 18%;" />-->
 </form>
 </body>
 

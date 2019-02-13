@@ -24,9 +24,8 @@ public class StudentController {
 
     @RequestMapping(value = "")
     public String index(Model model) {
-        //model.addAttribute("title", "Create Student");
+        model.addAttribute("title", "Student Details");
         model.addAttribute("students", studentDao.findAll());
-        model.addAttribute("title", "Create Student");
         return "student/index";
     }
 
@@ -56,23 +55,23 @@ public class StudentController {
         //********************EDIT************************
     }
 
-    @RequestMapping(value = "edit/{id)", method = RequestMethod.GET)
-    public String displayEditform(Model model, @PathVariable int id) {
+    @RequestMapping(value = "edit/{studentId}", method = RequestMethod.GET)
+    public String displayEditform(Model model, @PathVariable int studentId) {
         model.addAttribute("title", "Edit Student");
-        Student newStudent = studentDao.findOne(id);
+        model.addAttribute("student", studentDao.findOne(studentId));
       model.addAttribute("students",studentDao.findAll());
         return "student/edit";
     }
 
     @RequestMapping(value = "edit", method = RequestMethod.POST)
-    public String displayEditform(Model model, Student newStudent, @RequestParam String name, @RequestParam String grade, @RequestParam String emailId) {
-
+    public String displayEditform(@RequestParam int studentId,  @RequestParam String name, @RequestParam String grade, @RequestParam String emailId) {
+        Student newStudent= studentDao.findOne(studentId);
         newStudent.setName(name);
         newStudent.setGrade(grade);
         newStudent.setEmailId(emailId);
-        model.addAttribute("students", newStudent.getName());
-        model.addAttribute("students", newStudent.getGrade());
-        model.addAttribute("students", newStudent.getEmailId());
+//        model.addAttribute("students", newStudent.getName());
+//        model.addAttribute("students", newStudent.getGrade());
+//        model.addAttribute("students", newStudent.getEmailId());
         studentDao.save(newStudent);
         return "redirect:";
 
