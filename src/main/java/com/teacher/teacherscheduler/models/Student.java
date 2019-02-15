@@ -29,7 +29,7 @@ public class Student {
     @NotNull
     @Email
 
-//  @Size(min=3,max=25, message= "Please enter valid emailID")
+    @Size(min=3,max=25, message= "Please enter valid emailID")
     private String emailId ;
 
     // Default constructor is used for main

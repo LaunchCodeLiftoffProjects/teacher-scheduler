@@ -3,9 +3,10 @@
 <head th:replace="fragments :: head" ></head>
 <body>
 
-<h1 th:text="${title}">Student</h1>
 
 <nav th:replace="fragments :: navigation"></nav>
+<h1 th:text="${title}">Student Details</h1>
+
 
 <table class="table">
 
@@ -13,15 +14,19 @@
         <th>Name</th>
         <th>Grade</th>
         <th>EmailId</th>
+        <th>Edit</th>
     </tr>
 
     <tr th:each="student : ${students}">
         <td th:text="${student.name}"></td>
         <td th:text="${student.grade}"></td>
         <td th:text="${student.emailId}"></td>
-        <td><a th:href="@{'/student/edit/' + ${studentId}}">edit</a></td>
+        <td><a th:href="@{'/student/edit/' + ${student.id}}" >Edit</a></td>
+        <!--<td><a th:href="@{'/student/edit/' + ${student.id}}" class="btn">Edit</a></td>-->
     </tr>
 </table>
-    <a href="/student/add">Add</a>
+<!--<a href="/student/add" style="margin-left: 18%;">Add</a>-->
+    <a href="/student/add" style="margin-left: 18%;" class="btn">Add</a>
+    <a href="/student/remove" style="margin-left: 18%;" class="btn">Remove</a>
 </body>
 </html>

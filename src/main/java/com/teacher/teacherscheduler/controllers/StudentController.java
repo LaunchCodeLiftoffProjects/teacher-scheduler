@@ -22,11 +22,10 @@ public class StudentController {
     private StudentDao studentDao; // Data Access Object  --we will send the data from database by creating Autowired.
 
 
-    @RequestMapping(value ="")
+    @RequestMapping(value = "")
     public String index(Model model) {
-        //model.addAttribute("title", "Create Student");
+        model.addAttribute("title", "Student Details");
         model.addAttribute("students", studentDao.findAll());
-        model.addAttribute("title", "Create Student");
         return "student/index";
     }
 
@@ -38,6 +37,7 @@ public class StudentController {
         return "student/add";
 
     }
+
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddStudentForm(@ModelAttribute @Valid Student newStudent,
                                         Errors errors,
@@ -52,5 +52,45 @@ public class StudentController {
 
         studentDao.save(newStudent);
         return "redirect:";
+        //********************EDIT************************
     }
+
+    @RequestMapping(value = "edit/{studentId}", method = RequestMethod.GET)
+    public String displayEditform(Model model, @PathVariable int studentId) {
+        model.addAttribute("title", "Edit Student");
+        model.addAttribute("student", studentDao.findOne(studentId));
+      model.addAttribute("students",studentDao.findAll());
+        return "student/edit";
     }
+
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
+    public String displayEditform(@RequestParam int studentId,  @RequestParam String name, @RequestParam String grade, @RequestParam String emailId) {
+        Student newStudent= studentDao.findOne(studentId);
+        newStudent.setName(name);
+        newStudent.setGrade(grade);
+        newStudent.setEmailId(emailId);
+//        model.addAttribute("students", newStudent.getName());
+//        model.addAttribute("students", newStudent.getGrade());
+//        model.addAttribute("students", newStudent.getEmailId());
+        studentDao.save(newStudent);
+        return "redirect:";
+
+    }
+
+//    ***********************************remove****************************
+
+    @RequestMapping(value="remove", method =RequestMethod.GET)
+    public String displayRemoveStudentForm(Model model){
+        model.addAttribute("students",studentDao.findAll());
+        model.addAttribute("title","Remove Student");
+        return "student/remove";
+    }
+    @RequestMapping(value="remove",method = RequestMethod.POST)
+    public String processRemoveStudentForm(@RequestParam int[] studentIds){
+        for (int studentId:studentIds){
+            studentDao.delete(studentId);
+        }
+        return "redirect:";
+    }
+
+}

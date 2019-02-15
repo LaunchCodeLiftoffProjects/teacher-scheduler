@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:text-align="http://www.w3.org/1999/xhtml">
+
+<head th:replace="fragments :: head" ></head>
+<body>
+
+<!--<h1 th:text="${title}">Update Student</h1>-->
+<!--<h1 th:text="'Edit student \'' +${student.name} + '\'(id =' +${student.id} + ')'"></h1>-->
+<h1 th:text="'Edit student'"></h1>
+<p> Please update the Student details</p>
+<br/>
+<form method="post" style="max-width:600px;"  action = "/student/edit" >
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="*{student.name}" />
+        <span th:errors="*{student.name}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="grade">Grade</label>
+        <input class="form-control" th:field="*{student.grade}" />
+        <span th:errors="*{student.grade}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="emailId">EmailId</label>
+        <input class="form-control" th:field="*{student.emailId}" />
+        <span th:errors="*{student.emailId}" class="error"></span>
+    </div>
+    <input type="hidden" name="studentId" th:value="*{studentId}"/>
+    <input type="submit" value="Edit Student" style="margin-left: 15%;" />
+</form>
+</body>
+
+</html>
