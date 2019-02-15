@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+
+<div class="container body-content">
+
+    <form th:object="${assignForm}" method="post">
+
+        <div class="form-group">
+            <label th:for="teacherId">Teacher Name </label>
+            <select th:field="*{teacherId}">
+                <option th:each="teacher : *{teachers}"
+                        th:value="${teacher.id}"
+                        th:text="${teacher.value}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label th:for="subject">Subject</label>
+            <select th:field="*{subject}">
+                <option th:each="subject : *{subjects}"
+                        th:value="${subject}"
+                        th:text="${subject}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label th:for="studentId">Student Name </label>
+            <select th:field="*{studentId}">
+                <option th:each="student : *{students}"
+                        th:value="${student.id}"
+                        th:text="${student.value}"></option>
+            </select>
+        </div>
+
+
+
+        <input type="submit" value="Add Job" />
+    </form>
+
+</div>
+
+</body>
+</html>

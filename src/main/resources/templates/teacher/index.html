@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head" ></head>
+<body>
+
+<h1 th:text="${title}">Teacher</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>EmailId</th>
+    </tr>
+
+    <tr th:each="teacher : ${teachers}">
+        <td th:text="${teacher.name}"></td>
+
+        <td th:text="${teacher.emailId}"></td>
+        <td><a th:href="@{'/teacher/update/' + ${teacher.id}}">update</a></td>
+    </tr>
+</table>
+<a href="/teacher/add" style="color:green"><b>Add </b></a> |
+<a href="/teacher/remove" style="color:green"><b>Remove</b></a>
+</body>
+</html>
