@@ -48,12 +48,27 @@ public class UserController {
         return "redirect:";
     }
 
-    @RequestMapping(value = "logout", method = RequestMethod.POST)
-    public String add(@ModelAttribute @Valid User user,
-                      Model model) {
+    @RequestMapping(value = "logout", method = RequestMethod.GET)
+    public String logout(Model model) {
 
-        return "add";
+        return "user/logout";
+
     }
+    @RequestMapping(value = "login", method = RequestMethod.GET)
+    public String login(@ModelAttribute User user, Model model) {
 
+        return "user/login";
+    }
+    @RequestMapping(value = "login", method = RequestMethod.POST)
+    public String login(@ModelAttribute User user,
+                        Model model,
+                        Errors errors) {
+        if (user.getUsername().contains("test")) {
+            model.addAttribute("users", userDao.findAll());
+            return "user/index";
+        }
+        return "user/login";
+
+    }
 
 }

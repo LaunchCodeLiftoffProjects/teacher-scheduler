@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: head" ></head>
 <body>
 
@@ -17,8 +17,8 @@
         <td th:text="${user.username}"></td>
     </tr>
 </table>
-<a href="/user/add">Add</a>
-<a href="/logout">Logout</a>
+<a href="/user/add">Add |</a>
+<a href="/user/logout"> Logout</a>
 
 </body>
 </html>
