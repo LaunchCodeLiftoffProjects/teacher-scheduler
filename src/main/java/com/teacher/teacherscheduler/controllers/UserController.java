@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+
 @Controller
 @RequestMapping("user")
 public class UserController {
@@ -17,6 +18,8 @@ public class UserController {
 
     @Autowired
     private UserDao userDao; // Data Access Object  --we will send the data from database by creating Autowired.
+
+
 
     @RequestMapping(value ="")
     public String index(Model model) {
@@ -34,8 +37,8 @@ public class UserController {
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String add(@ModelAttribute @Valid User user,
-                      Errors errors,
-                      Model model) {
+                      Model model,
+                      Errors errors) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Register");
             model.addAttribute("users", userDao.findAll());
@@ -43,6 +46,13 @@ public class UserController {
         }
         userDao.save(user);
         return "redirect:";
+    }
+
+    @RequestMapping(value = "logout", method = RequestMethod.POST)
+    public String add(@ModelAttribute @Valid User user,
+                      Model model) {
+
+        return "add";
     }
 
 
