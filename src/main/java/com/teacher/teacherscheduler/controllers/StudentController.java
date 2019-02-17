@@ -19,8 +19,7 @@ public class StudentController {
 
 
     @Autowired
-    private StudentDao studentDao; // Data Access Object  --we will send the data from database by creating Autowired.
-
+    private StudentDao studentDao;
 
     @RequestMapping(value ="")
     public String index(Model model) {

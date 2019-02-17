@@ -5,10 +5,14 @@
 
 <h1 th:text="${title}">Users</h1>
 
+<p th:unless="${user}">Not logged in</p>
+<p th:each="user : ${user}"></p>
+<h1 th:text="'Hello, ' + ${user.username}"></h1>
+
+
 <nav th:replace="fragments :: navigation"></nav>
 
 <table class="table">
-
     <tr>
         <th>Username</th>
     </tr>
@@ -17,7 +21,8 @@
         <td th:text="${user.username}"></td>
     </tr>
 </table>
-<a href="/user/add">Add |</a>
+<a href="/user/add">Add </a> |
+<a href="/user/login">Log in </a> |
 <a href="/user/logout"> Logout</a>
 
 </body>
