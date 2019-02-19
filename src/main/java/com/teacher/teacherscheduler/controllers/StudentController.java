@@ -46,9 +46,6 @@ public class StudentController {
             model.addAttribute("students", studentDao.findAll());
             return "student/add";
         }
-//        Student stu = studentDao.findOne(studentId);
-//        newStudent.setStudent(stu);
-
         studentDao.save(newStudent);
         return "redirect:";
     }

@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
 @Entity
 public class User {
     @Id
-    @GeneratedValue // this create unique id for every student.
+    @GeneratedValue
     private int id;
 
     @NotNull

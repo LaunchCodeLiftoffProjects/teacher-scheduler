@@ -8,20 +8,20 @@
 
 <form method="post" style="max-width:600px;">
     <div class="form-group">
-        <label for="username-field">Username</label>
-        <input class="form-control" id="username-field" type="text" name="username" th:value="${username}"/>
+        <label for="username">Username:</label>
+        <input class="form-control" id="username" type="text" name="username" th:value="${username}"/>
     </div>
     <div class="form-group">
-        <label for="email-field">Email:</label>
-        <input class="form-control" id="email-field" type="email" name="email" th:value="${email}"/>
+        <label for="email">Email:</label>
+        <input class="form-control" id="email" type="email" name="email" th:value="${email}"/>
     </div>
     <div class="form-group">
-        <label for="password-field">Password:</label>
-        <input class="form-control" id="password-field" type="password" name="password" th:value="${password}" />
+        <label for="password">Password:</label>
+        <input class="form-control" id="password" type="password" name="password" th:value="${password}"/>
     </div>
     <div class="form-group">
-        <label for="verify-field">Verify:</label>
-        <input class="form-control" id="verify-field" type="password" name="verify" />
+        <label for="verify">Verify:</label>
+        <input class="form-control" id="verify" type="password" name="verify" th:value="${verify}" />
     </div>
     <input type="submit" value="Sign Up" />
 </form>

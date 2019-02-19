@@ -27,10 +27,13 @@ public class UserController {
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model) {
         model.addAttribute(new User());
+        model.addAttribute("user", userDao.findAll());
+
         model.addAttribute("title", "Sign up");
         return "user/add";
     }
-    @RequestMapping(value = "add", method = RequestMethod.POST)
+
+     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String add(Model model, @ModelAttribute @Valid User user, Errors errors, String verify) {
         List<User> sameName = userDao.findByUsername(user.getUsername());
         if(!errors.hasErrors() && user.getPassword().equals(verify) && sameName.isEmpty()) {
