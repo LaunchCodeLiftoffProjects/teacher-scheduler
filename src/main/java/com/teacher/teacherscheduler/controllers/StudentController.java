@@ -19,8 +19,7 @@ public class StudentController {
 
 
     @Autowired
-    private StudentDao studentDao; // Data Access Object  --we will send the data from database by creating Autowired.
-
+    private StudentDao studentDao;
 
     @RequestMapping(value = "")
     public String index(Model model) {
@@ -47,9 +46,6 @@ public class StudentController {
             model.addAttribute("students", studentDao.findAll());
             return "student/add";
         }
-//        Student stu = studentDao.findOne(studentId);
-//        newStudent.setStudent(stu);
-
         studentDao.save(newStudent);
         return "redirect:";
         //********************EDIT************************
