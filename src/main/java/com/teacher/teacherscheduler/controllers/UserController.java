@@ -29,7 +29,7 @@ public class UserController {
         model.addAttribute(new User());
         model.addAttribute("user", userDao.findAll());
 
-        model.addAttribute("title", "Sign up");
+        model.addAttribute("title", "Register");
         return "user/add";
     }
 
@@ -38,11 +38,12 @@ public class UserController {
         List<User> sameName = userDao.findByUsername(user.getUsername());
         if(!errors.hasErrors() && user.getPassword().equals(verify) && sameName.isEmpty()) {
             model.addAttribute("user", user);
+            model.addAttribute("users", userDao.findAll());
             userDao.save(user);
             return "user/index";
         } else {
             model.addAttribute("user", user);
-            model.addAttribute("title", "Sign up");
+            model.addAttribute("title", "Register");
             if(!user.getPassword().equals(verify)) {
                 model.addAttribute("message", "Passwords must match");
                 user.setPassword("");
