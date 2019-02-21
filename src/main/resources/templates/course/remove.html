@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<h1 th:text="${title}"> Remove Course </h1>
+<body>
+<p>Please select course to Remove</p>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="margin-left:100px;">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+    </table>
+    <tbody>
+    <tr>
+        <div th:each="course :${courses}" class="checkbox">
+            <input type="checkbox" name="courseIds" th:value="${course.id}" th:id="${course.id}"/>
+            <div class="form-group">
+
+                <label th:for="${course.id}" th:text="${course.name}"></label>
+                <label th:for="${course.id}" th:text="${course.department}" style="margin-left:25%;"></label>
+                <label th:for="${course.id}" th:text="${course.description}" style="margin-left:20%;"></label>
+            </div>
+        </div>
+    </tr>
+    </tbody>
+    <button type="submit" class="btn btn-danger">Remove Course</button>
+
+
+</form>
+</body>
+</html>
