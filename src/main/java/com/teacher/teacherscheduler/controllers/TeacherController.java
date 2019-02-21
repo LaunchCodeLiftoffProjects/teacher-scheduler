@@ -2,6 +2,8 @@ package com.teacher.teacherscheduler.controllers;
 
 import com.teacher.teacherscheduler.data.StudentDao;
 import com.teacher.teacherscheduler.data.TeacherDao;
+
+import com.teacher.teacherscheduler.forms.AssignForm;
 import com.teacher.teacherscheduler.models.Student;
 import com.teacher.teacherscheduler.models.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class TeacherController {
 
     @Autowired
     private TeacherDao teacherDao; // Data Access Object  --we will send the data from database by creating Autowired.
+
+    @Autowired
+    private StudentDao studentDao;
 
 
     @RequestMapping(value = "")
@@ -95,5 +100,53 @@ public class TeacherController {
 
         teacherDao.save(teacher);
         return "redirect:";
+    }
+
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public String index(Model model, int id) {
+
+        Teacher teacher = teacherDao.findOne(id);
+        model.addAttribute("teachers", teacher);
+
+        return "teacher/view";
+    }
+
+    @RequestMapping(value = "assign/{assignId}", method = RequestMethod.GET)
+    public String addItem(Model model, @PathVariable int assignId ) {
+
+        Teacher teacher = teacherDao.findOne(assignId);
+        Student student =studentDao.findOne(assignId);
+
+        AssignForm assignForm = new AssignForm(teacher,teacherDao.findAll());
+//        AssignForm  assignForm1 =new AssignForm(student,studentDao.findAll());
+
+        model.addAttribute("title", "Add item to menu: " + teacher.getName());
+        model.addAttribute("form", assignForm);
+
+        return "teacher/assign";
+    }
+    @RequestMapping(value = "assign", method = RequestMethod.POST)
+    public String add(Model model, @Valid AssignForm assignForm, Errors errors) {
+
+        if (errors.hasErrors()){
+            return "teacher/assign";
+        }
+//        Teacher teacher = new Teacher(assignForm.getTeacher(),
+//                assignForm.getTeacher().findById(assignForm.getTeacherId()),
+////                assignForm.getCourse().findById(assignForm.getcourseId()),
+//                assignForm.getStudent().findById(assignForm.getStudentId());
+        Teacher teacher = teacherDao.findOne(assignForm.getTeacherId());
+        teacher.getName();
+        teacher.getEmailId();
+        Student student = studentDao.findOne(assignForm.getStudentId());
+        student.getEmailId();
+        student.getGrade();
+        student.getName();
+        teacherDao.save(teacher);studentDao.save(student);
+        return "redirect:";
+
+
+        //return "";
+
     }
 }

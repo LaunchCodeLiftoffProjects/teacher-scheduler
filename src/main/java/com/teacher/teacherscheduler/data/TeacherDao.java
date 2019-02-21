@@ -12,4 +12,5 @@ import javax.transaction.Transactional;
 @Repository
 @Transactional
 public interface TeacherDao extends CrudRepository<Teacher, Integer> {
+
 }
