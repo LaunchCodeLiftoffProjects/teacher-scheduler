@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head" ></head>
+    <h1 th:text="${title}">Create Course</h1>
+<body>
+<p> Please fill the below details to Create Course</p>
+<br/>
+<form method="post" style="max-width:600px;" th:object="${course}">
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="department">Department</label>
+        <input class="form-control" th:field="*{department}" />
+        <span th:errors="*{department}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+
+        <label th:for="description">Description</label>
+        <input class="form-control" th:field="*{description}" />
+        <span th:errors="*{description}" class="error"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Course</button>
+
+</form>
+</body>
+
+</html>
