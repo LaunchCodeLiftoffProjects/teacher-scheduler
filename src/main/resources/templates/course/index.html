@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head" ></head>
+<body>
+
+<h1 th:text="${title}">Course</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<table class="table">
+
+    <tr>
+        <th>Course Name</th>
+        <th>Department</th>
+        <th>Description</th>
+
+    </tr>
+
+    <tr th:each="course : ${courses}">
+        <td th:text="${course.name}"></td>
+        <td th:text="${course.department}"></td>
+        <td th:text="${course.description}"></td>
+
+    </tr>
+</table>
+<a href="/course/add" style="color:green"><b>Add </b></a> |
+<a href="/course/remove" style="color:green"><b>Remove</b></a>
+</body>
+</html>
