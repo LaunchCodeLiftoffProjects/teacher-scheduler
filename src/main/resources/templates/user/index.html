@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: head" ></head>
+
 <body>
+<nav th:replace="fragments :: navigation"></nav>
 
 <h1 th:text="${title}">Users</h1>
 
@@ -10,7 +12,6 @@
 <h1 th:text="'Hello, ' + ${user.username}"></h1>
 
 
-<nav th:replace="fragments :: navigation"></nav>
 
 <table class="table">
     <tr>
@@ -20,10 +21,8 @@
     <tr th:each="user : ${users}">
         <td th:text="${user.username}"></td>
     </tr>
+
 </table>
-<a href="/user/add">Register </a> |
-<a href="/user/login">Log in </a> |
-<a href="/user/logout"> Log out</a>
 
 </body>
 </html>
