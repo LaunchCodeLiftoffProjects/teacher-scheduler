@@ -20,6 +20,8 @@
 
     <tr th:each="user : ${users}">
         <td th:text="${user.username}"></td>
+        <td th:text="${user.type.name}"></td>
+
     </tr>
 
 </table>
