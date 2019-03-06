@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments :: head" ></head>
+<body>
+
+<h1 th:text="${title}">Teacher</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+<p> Please update the below details for Teacher Schedule</p>
+
+
+<form method ="post" style="max-width:600px;" action ="/teacher/update">
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input  class="form-control" th:field="*{teacher.name}" />
+        <span th:errors="*{teacher.name}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="emailId">EmailId</label>
+        <input   class="form-control" th:field="*{teacher.emailId}" />
+        <span th:errors="*{teacher.emailId}" class="error"></span>
+    </div>
+    <input type="hidden" name ="teacherId" th:value="${teacherId}"/>
+
+    <input type="submit" value="update Teacher" />
+</form>
+
+</body>
+</html>

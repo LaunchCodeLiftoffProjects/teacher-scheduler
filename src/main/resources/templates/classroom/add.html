@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head" ></head>
+<h1 th:text="${title}">Add Classroom</h1>
+<body>
+<p> Create a classroom</p>
+<br/>
+<form method="post" style="max-width:600px;" th:object="${classroom}">
+    <div class="form-group">
+        <label th:for="name">Name of classroom</label>
+        <input class="form-control" th:field="*{name}" />
+        <span th:errors="*{classroomName}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+    <label th:for="emailId">classPeriod1</label>
+    <input class="form-control" th:field="*{classPeriod1}" />
+    <span th:errors="*{classPeriod1}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="emailId">classPeriod2</label>
+        <input class="form-control" th:field="*{classPeriod2}" />
+        <span th:errors="*{classPeriod2}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="emailId">classPeriod3</label>
+        <input class="form-control" th:field="*{classPeriod3}" />
+        <span th:errors="*{classPeriod3}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="emailId">classPeriod4</label>
+        <input class="form-control" th:field="*{classPeriod4}" />
+        <span th:errors="*{classPeriod4}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="emailId">classPeriod5</label>
+        <input class="form-control" th:field="*{classPeriod5}" />
+        <span th:errors="*{classPeriod5}" class="error"></span>
+    </div>
+
+    <input type="submit" value="Add Classroom" />
+</form>
+</body>
+
+</html>
