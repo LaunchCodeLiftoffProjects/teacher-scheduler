@@ -2,11 +2,11 @@ package com.teacher.teacherscheduler.models;
 
 import org.hibernate.validator.constraints.Email;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity //specify this annotation as store this class in DB
 public class Teacher {
@@ -26,11 +26,11 @@ public class Teacher {
     @NotNull
     @Email
     @Size(min=10,max=25, message= "Please enter valid emailID")
-
-
-
     private String emailId ;
 
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(unique = true)
+//    private  Assign assign;
     // Default constructor is used for main
     public Teacher(){
 
@@ -45,6 +45,9 @@ public class Teacher {
     }
 
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getId() {
         return id;
@@ -66,6 +69,13 @@ public class Teacher {
         this.emailId = emailId;
     }
 
-    public void setTeacher(Teacher teacher) {
-    }
+//    public Assign getAssign() {
+//        return assign;
+//    }
+//
+//    public void setAssign(Assign assign) {
+//        this.assign = assign;
+//    }
+
+
 }

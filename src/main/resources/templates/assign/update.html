@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head" ></head>
+<h1 th:text="${title}">update Assign</h1>
+<body>
+<p> Please fill the below details to Create Teacher Schedule</p>
+<br/>
+<form method="post"  action ="/assign/update" style="max-width:600px;" >
+    <div class="form-group">
+        <label th:for="period">Period</label>
+        <input class="form-control" th:field="*{assign.period}" />
+        <span th:errors="*{assign.period}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="teacherId">Teacher</label>
+        <select name="teacherId">
+            <option th:each="teacher: ${teachers}"
+                    th:text="${teacher.name}"
+                    th:value="${teacher.id}"
+            th:selected="${teacher.id}">
+
+            </option>
+        </select>
+    </div>
+    <input type="hidden" name ="assignId" th:value="${assignId}"/>
+
+    <input type="submit" value="Create Assign" />
+</form>
+</body>
+
+</html>

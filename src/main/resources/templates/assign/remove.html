@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments :: head" ></head>
+<body>
+
+<h1 th:text="${title}">Assign</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+<form method="post" style="margin-left:20%;">
+    <div class="form-group">
+
+        <div th:each="assign:${assigns}" class="checkbox">
+            <input type="checkbox" name="assignIds" th:value="${assign.id}" th:id="${assign.id}"/>
+            <label th:for="${assign.id}" th:text="${assign.period}"></label>
+        </div>
+    </div>
+    <input type ="submit" value = "Remove"/>
+</form>
+
+</body>
+</html>

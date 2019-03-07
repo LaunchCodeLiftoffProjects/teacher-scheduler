@@ -2,6 +2,7 @@ package com.teacher.teacherscheduler.controllers;
 
 import com.teacher.teacherscheduler.data.StudentDao;
 import com.teacher.teacherscheduler.data.TeacherDao;
+
 import com.teacher.teacherscheduler.models.Student;
 import com.teacher.teacherscheduler.models.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,4 +97,14 @@ public class TeacherController {
         teacherDao.save(teacher);
         return "redirect:";
     }
+//
+//    @RequestMapping(value = "", method = RequestMethod.GET)
+//    public String index(Model model, int id) {
+//
+//        Teacher teacher = teacherDao.findOne(id);
+//        model.addAttribute("teachers", teacher);
+//
+//        return "teacher/view";
+//    }
+
 }
