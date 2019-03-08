@@ -21,19 +21,23 @@ public class Assign {
    @JoinColumn(name="teacher_id")
     private Teacher teacher;
 
+    @OneToOne
+    @JoinColumn(name="student_id")
+    private Student student;
+
 //    @OneToOne
-//    @JoinColumn(name="student_id")
-//    private Student student;
-
-
+//    @JoinColumn(name="course_id")
+//    private Course course;
 
    public Assign(){
 
    }
 
-    public Assign(String period, Teacher teacher) {
+    public Assign(String period, Teacher teacher, Student student) {
         this.period = period;
         this.teacher = teacher;
+//        this.course = course;
+        this.student = student;
     }
 
     public int getId() {
@@ -59,7 +63,20 @@ public class Assign {
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
+//
+//    public String getCourse() {
+//        return course;
+//    }
+//
+//    public void setCourse(String course) {
+//        this.course = course;
+//    }
 
+    public Student getStudent() {
+        return student;
+    }
 
-
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 }

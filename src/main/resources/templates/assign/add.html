@@ -3,6 +3,7 @@
 
 <head th:replace="fragments :: head" ></head>
 <h1 th:text="${title}">Create Teacher</h1>
+<nav th:replace="fragments :: navigation"></nav>
 <body>
 <p> Please fill the below details to Create Teacher Schedule</p>
 <br/>
@@ -21,6 +22,27 @@
                     th:value="${teacher.id}"></option>
         </select>
     </div>
+
+
+
+    <div class="form-group">
+        <label th:for="studentId">Student</label>
+        <select name="studentId">
+            <option th:each="student: ${students}"
+                    th:text="${student.name}"
+                    th:value="${student.id}"></option>
+        </select>
+    </div>
+
+    <!--<div class="form-group">-->
+        <!--<label th:for="courseId">Course</label>-->
+        <!--<select name="courseId">-->
+            <!--<option th:each="course : *{courses}"-->
+                    <!--th:text="${course.value}">-->
+                    <!--th:value="${course.id}"</option>-->
+         <!--</select>-->
+    <!--</div>-->
+
     <input type="submit" value="Create Assign" />
 </form>
 </body>
