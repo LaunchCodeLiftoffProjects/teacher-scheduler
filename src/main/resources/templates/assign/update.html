@@ -37,6 +37,18 @@
             </option>
         </select>
     </div>
+
+    <div class="form-group">
+        <label th:for="courseId">Course</label>
+        <select name="courseId">
+            <option th:each="course: ${courses}"
+                    th:text="${course.name}"
+                    th:value="${course.id}"
+                    th:selected="${course.id}">
+
+            </option>
+        </select>
+    </div>
     <input type="hidden" name ="assignId" th:value="${assignId}"/>
 
     <input type="submit" value="Create Assign" />
