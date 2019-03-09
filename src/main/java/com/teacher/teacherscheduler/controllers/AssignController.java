@@ -1,8 +1,13 @@
 package com.teacher.teacherscheduler.controllers;
 
 import com.teacher.teacherscheduler.data.AssignDao;
+import com.teacher.teacherscheduler.data.CourseDao;
+import com.teacher.teacherscheduler.data.StudentDao;
 import com.teacher.teacherscheduler.data.TeacherDao;
+
 import com.teacher.teacherscheduler.models.Assign;
+import com.teacher.teacherscheduler.models.Course;
+import com.teacher.teacherscheduler.models.Student;
 import com.teacher.teacherscheduler.models.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +28,12 @@ public class AssignController {
     @Autowired
     private TeacherDao teacherDao;
 
+    @Autowired
+    private StudentDao studentDao;
+
+    @Autowired
+    private CourseDao courseDao;
+
     @RequestMapping(value = "")
     public String index(Model model) {
         model.addAttribute("title", " create Assign");
@@ -37,22 +48,31 @@ public class AssignController {
 
         model.addAttribute(new Assign());
         model.addAttribute("teachers", teacherDao.findAll());
+        model.addAttribute("students", studentDao.findAll());
+        model.addAttribute("courses", courseDao.findAll());
         return "assign/add";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddForm(@ModelAttribute @Valid Assign assign,
-                                 Errors errors, @RequestParam int teacherId, Model model) {
+                                 Errors errors, @RequestParam int teacherId, @RequestParam int studentId,
+                                 @RequestParam int courseId, Model model) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Assign");
 
 //            model.addAttribute("assigns",assignDao.findAll());
             model.addAttribute("teachers", teacherDao.findAll());
+            model.addAttribute("students", studentDao.findAll());
+            model.addAttribute("courses", courseDao.findAll());
 
             return "assign/add";
         }
         Teacher teacher = teacherDao.findOne(teacherId);
+        Student student = studentDao.findOne(studentId);
+        Course course = courseDao.findOne(courseId);
         assign.setTeacher(teacher);
+        assign.setStudent(student);
+        assign.setCourse(course);
         assignDao.save(assign);
 
         return "redirect:";
@@ -83,18 +103,27 @@ public class AssignController {
         model.addAttribute("assign", assignDao.findOne(assignId));
         model.addAttribute("assigns", assignDao.findAll());
         model.addAttribute("teachers", teacherDao.findAll());
+        model.addAttribute("students", studentDao.findAll());
+        model.addAttribute("courses", courseDao.findAll());
         return "assign/update";
 
     }
 
     @RequestMapping(value = "update", method = RequestMethod.POST)
     public String processUpdateAssignForm(@RequestParam String period, @RequestParam int teacherId,
-                                           @RequestParam int assignId) {
+                                          @RequestParam int studentId, @RequestParam int courseId,
+
+                                          @RequestParam int assignId) {
 
         Assign assign = assignDao.findOne(assignId);
         Teacher teacher = teacherDao.findOne(teacherId);
+        Student student = studentDao.findOne(studentId);
+        Course course = courseDao.findOne(courseId);
         assign.setPeriod(period);
         assign.setTeacher(teacher);
+
+        assign.setStudent(student);
+        assign.setCourse(course);
 
         assignDao.save(assign);
         return "redirect:";
