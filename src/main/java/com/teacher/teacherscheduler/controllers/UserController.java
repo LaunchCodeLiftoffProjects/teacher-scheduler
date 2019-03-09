@@ -1,6 +1,8 @@
 package com.teacher.teacherscheduler.controllers;
 
+import com.teacher.teacherscheduler.data.TypeDao;
 import com.teacher.teacherscheduler.data.UserDao;
+import com.teacher.teacherscheduler.models.Type;
 import com.teacher.teacherscheduler.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -22,23 +26,31 @@ public class UserController {
 
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private TypeDao typeDao;
+
 
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model) {
         model.addAttribute(new User());
         model.addAttribute("user", userDao.findAll());
-
+        model.addAttribute("types", typeDao.findAll());
         model.addAttribute("title", "Register");
         return "user/add";
     }
 
      @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String add(Model model, @ModelAttribute @Valid User user, Errors errors, String verify) {
+    public String add(Model model, @ModelAttribute @Valid User user, Errors errors, String verify, @RequestParam int typeId) {
+
         List<User> sameName = userDao.findByUsername(user.getUsername());
-        if(!errors.hasErrors() && user.getPassword().equals(verify) && sameName.isEmpty()) {
+         model.addAttribute("types", typeDao.findAll());
+
+         if(!errors.hasErrors() && user.getPassword().equals(verify) && sameName.isEmpty()) {
             model.addAttribute("user", user);
             model.addAttribute("users", userDao.findAll());
+             Type type = typeDao.findOne(typeId);
+             user.setType(type);
             userDao.save(user);
             return "user/index";
         } else {
@@ -55,6 +67,7 @@ public class UserController {
             return "user/add";
         }
     }
+    //NEW FEATURE: LINKING TYPE WITH USER
 
     @RequestMapping(value = "login")
     public String loginForm(Model model) {
