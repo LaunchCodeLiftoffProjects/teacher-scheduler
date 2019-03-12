@@ -13,7 +13,7 @@ class HelloController {
     @RequestMapping(value = "")
     public String index(Model model) {
         model.addAttribute("title", "Tracker");
-        return "home-page/home-page";
+        return "home/home-page";
     }
 }
 
