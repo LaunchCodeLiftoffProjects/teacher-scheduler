@@ -66,20 +66,20 @@ public class TeacherController {
 
     @RequestMapping(value = "remove", method = RequestMethod.POST)
     public String processRemoveTeacherForm(@RequestParam int[] teacherIds) {
-       for (int teacherId : teacherIds){
-           teacherDao.delete(teacherId);
-       }
-       return "redirect:";
+        for (int teacherId : teacherIds) {
+            teacherDao.delete(teacherId);
+        }
+        return "redirect:";
 
     }
 
 
     @RequestMapping(value = "update/{teacherId}", method = RequestMethod.GET)
-    public String displayUpdateTeacherForm(Model model,@PathVariable int teacherId) {
+    public String displayUpdateTeacherForm(Model model, @PathVariable int teacherId) {
         model.addAttribute("title", "Update Teacher");
 
-        model.addAttribute("teacher",teacherDao.findOne(teacherId)) ;
-         model.addAttribute("teachers", teacherDao.findAll());
+        model.addAttribute("teacher", teacherDao.findOne(teacherId));
+        model.addAttribute("teachers", teacherDao.findAll());
         return "teacher/update";
 
     }
@@ -96,4 +96,8 @@ public class TeacherController {
         teacherDao.save(teacher);
         return "redirect:";
     }
+
+
+
+
 }
