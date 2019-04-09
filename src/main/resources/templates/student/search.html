@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head" ></head>
+<h1 th:text="${title}">Search Student</h1>
+<body>
+<p> Enter the student name</p>
+<br/>
+<form  action="/student/search" method= "get" style="max-width:600px;" >
+    <div class="form-group">
+        <input type="text" class="form-control" id="txt" name="name" th:value="${name}"/>
+        <br/>
+
+        <input type="Submit" value="Search Student"  />
+    </div>
+</form>
+
+
+
+<!--<p th:unless="${students} and ${students.size()}">no students :(</p>-->
+<div th:if="${students}">
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Grade</th>
+        <th>EmailId</th>
+    </tr>
+
+    <tr th:each="student : ${students}">
+        <td th:text="${student.name}" th:value="${student.name}"></td>
+        <td th:text="${student.grade}"></td>
+        <td th:text="${student.emailId}"></td>
+        <!--<td><a th:href="@{'/student/edit/' + ${student.id}}" >Return</a></td>-->
+        <!--<td><a th:href="@{'/student/edit/' + ${student.id}}" class="btn">Edit</a></td>-->
+    </tr>
+</table>
+    <a href="/student"  style="margin-left: 18%;" class="btn">Return</a>
+</div>
+</body>
+</html>

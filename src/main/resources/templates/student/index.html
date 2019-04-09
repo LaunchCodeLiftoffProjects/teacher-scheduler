@@ -5,14 +5,33 @@
 
 
 <nav th:replace="fragments :: navigation"></nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <h1 th:text="${title}">Student Details</h1>
-
-
 <table class="table">
 
     <tr>
         <th>Name</th>
-        <th>Grade</th>
+        <th>Grade</th>     <!--<a href="/student/search" style="margin-left: 18%;" class="btn">Search</a>-->
+
         <th>EmailId</th>
         <th>Edit</th>
     </tr>
@@ -28,5 +47,8 @@
 <!--<a href="/student/add" style="margin-left: 18%;">Add</a>-->
     <a href="/student/add" style="margin-left: 18%;" class="btn">Add</a>
     <a href="/student/remove" style="margin-left: 18%;" class="btn">Remove</a>
+    <a href="/student/search"  style="margin-left: 18%;" class="btn">search</a>
+
+
 </body>
 </html>

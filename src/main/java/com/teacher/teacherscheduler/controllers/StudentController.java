@@ -8,8 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.crypto.ExemptionMechanism;
 import javax.validation.Valid;
 import javax.xml.ws.RequestWrapper;
+
+import java.util.List;
 
 import static com.fasterxml.jackson.databind.deser.std.UntypedObjectDeserializer.Vanilla.std;
 
@@ -55,13 +58,13 @@ public class StudentController {
     public String displayEditform(Model model, @PathVariable int studentId) {
         model.addAttribute("title", "Edit Student");
         model.addAttribute("student", studentDao.findOne(studentId));
-      model.addAttribute("students",studentDao.findAll());
+        model.addAttribute("students", studentDao.findAll());
         return "student/edit";
     }
 
     @RequestMapping(value = "edit", method = RequestMethod.POST)
-    public String displayEditform(@RequestParam int studentId,  @RequestParam String name, @RequestParam String grade, @RequestParam String emailId) {
-        Student newStudent= studentDao.findOne(studentId);
+    public String displayEditform(@RequestParam int studentId, @RequestParam String name, @RequestParam String grade, @RequestParam String emailId) {
+        Student newStudent = studentDao.findOne(studentId);
         newStudent.setName(name);
         newStudent.setGrade(grade);
         newStudent.setEmailId(emailId);
@@ -75,18 +78,41 @@ public class StudentController {
 
 //    ***********************************remove****************************
 
-    @RequestMapping(value="remove", method =RequestMethod.GET)
-    public String displayRemoveStudentForm(Model model){
-        model.addAttribute("students",studentDao.findAll());
-        model.addAttribute("title","Remove Student");
+    @RequestMapping(value = "remove", method = RequestMethod.GET)
+    public String displayRemoveStudentForm(Model model) {
+        model.addAttribute("students", studentDao.findAll());
+        model.addAttribute("title", "Remove Student");
         return "student/remove";
     }
-    @RequestMapping(value="remove",method = RequestMethod.POST)
-    public String processRemoveStudentForm(@RequestParam int[] studentIds){
-        for (int studentId:studentIds){
+
+    @RequestMapping(value = "remove", method = RequestMethod.POST)
+    public String processRemoveStudentForm(@RequestParam int[] studentIds) {
+        for (int studentId : studentIds) {
             studentDao.delete(studentId);
         }
         return "redirect:";
     }
+    //============================== search
 
+    @RequestMapping(value = "search", method = RequestMethod.GET)
+    public String displaySearchStudentForm(Model model,@ModelAttribute("name") String name) {
+        model.addAttribute("title", "Search Student");
+
+        model.addAttribute("name", name);
+        model.addAttribute("students",studentDao.findAllStudentsByName(name) );
+        return "student/search";
+    }
+
+
+//    @RequestMapping(value = "search", method = RequestMethod.POST)
+//    public String displaySearchform(@RequestParam String studentId, @RequestParam String name, @RequestParam String grade, @RequestParam String emailId) {
+//       Student newStudent = studentDao.findOne(name);
+//
+//        model.addAttribute("students", newStudent.getName());
+////        model.addAttribute("students", newStudent.getGrade());
+////        model.addAttribute("students", newStudent.getEmailId());
+////        studentDao.save(newStudent);
+//        return "redirect:";
+//    }
 }
+
