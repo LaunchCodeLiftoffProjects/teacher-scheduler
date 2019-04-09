@@ -75,6 +75,6 @@ public class Student {
         this.emailId = emailId;
     }
 
-    public void setStudent(Student student) {
-    }
+    //public void setStudent(Student student) {
+   // }
 }

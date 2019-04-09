@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<h1 th:text="${title}">Assign Teacher</h1>
+
+
+<nav th:replace="fragments :: navigation"></nav>
+        <table class="table">
+
+            <tr>
+                <th>Period</th>
+                <th>Teacher</th>
+                <th>Student</th>
+                <th>Course</th>
+                <th>update</th>
+            </tr>
+
+            <tr th:each="assign : ${assigns}">
+                <td th:text="${assign.period}"></td>
+                <td th:text="${assign.teacher.getName()}"></td>
+
+                <td th:text="${assign.student.getName()}"></td>
+                <td th:text="${assign.course.getName()}"></td>
+                <td><a th:href="@{'/assign/update/' + ${assign.id}}">update</a>
+                </td>
+
+            </tr>
+
+
+
+        </table>
+
+<a href="/assign/add" style="color:green"><b>Add </b></a> |
+<a href="/assign/remove" style="color:green"><b>Remove</b></a>
+
+
+
+
+</body>
+</html>
