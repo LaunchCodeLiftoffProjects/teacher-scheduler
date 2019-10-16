@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments :: head" ></head>
+<body>
+
+<h1 th:text="${title}">classroom</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+<form method="post" style="max-width:800px;">
+    <div class="form-group">
+
+    <div th:each="classroom:${classrooms}" class="checkbox">
+    <input type="checkbox" name="classroomIds" th:value="${classroom.id}" th:id="${classroom.id}"/>
+    <label th:for="${classroom.id}" th:text="${classroom.name}"></label>
+   </div>
+</div>
+    <input type ="submit" value = "Remove classroom"/>
+</form>
+
+</body>
+</html>
