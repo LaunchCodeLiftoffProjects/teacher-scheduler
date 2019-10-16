@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<h1 th:text="${title}"> Default Title </h1>
+<body>
+<p>Please select student to Remove</p>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<form method="post" style="margin-left:100px;">
+    <!--<table class="table">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th>Classroom Name</th>-->
+            <!--<th>Period 1</th>-->
+            <!--<th>Period 2</th>-->
+            <!--<th>Period 3</th>-->
+            <!--<th>Period 4</th>-->
+            <!--<th>Period 5</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+
+    <!--</table>-->
+
+        <div th:each="classroom :${classrooms}" class="checkbox">
+            <input type="checkbox" name="classroomIds" th:value="${classroom.id}" th:id="${classroom.id}"/>
+            <div class="form-group">
+
+
+<table class="table">
+    <thead> <th>Classroom Name</th>
+    <th>Period 1</th>
+    <th>Period 2</th>
+    <th>Period 3</th>
+    <th>Period 4</th>
+    <th>Period 5</th></thead>
+    <tr>
+        <th><label th:for="${classroom.id}" th:text="${classroom.classroomName}"></label></th>
+                    <th><label th:for="${classroom.id}" th:text="${classroom.classPeriod1}" style="margin-left:0%;"></label></th>
+                    <th><label th:for="${classroom.id}" th:text="${classroom.classPeriod2}" style="margin-left:0%;"></label></th>
+                    <th><label th:for="${classroom.id}" th:text="${classroom.classPeriod3}" style="margin-left:0%;"></label></th>
+                    <th><label th:for="${classroom.id}" th:text="${classroom.classPeriod4}" style="margin-left:0%;"></label></th>
+                <th><label th:for="${classroom.id}" th:text="${classroom.classPeriod5}" style="margin-left:0%;"></label></th>
+    </tr>
+</table>
+            </div>
+        </div>
+
+
+    <button type="submit" class="btn btn-danger">Remove Classroom</button>
+    <!--<input type="submit" value="Remove Student" />-->
+
+</form>
+</body>
+</html>

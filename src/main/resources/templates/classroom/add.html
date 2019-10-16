@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head" ></head>
+<h1 th:text="${title}">Add Classroom</h1>
+<body>
+<p> Create a classroom</p>
+<br/>
+
+<form method="post" style="max-width:600px;" th:object="${classroom}">
+
+    <div class="form-group">
+        <label th:for="name">Name of classroom</label>
+        <input class="form-control" th:field="*{classroomName}" />
+
+        <span th:errors="*{classroomName}" class="error"></span>
+    </div>
+
+    <div class="col-lg-10" th:object="${classroom}">
+        <label th:for="classPeriod1">Period 1</label>
+    <select class="form-control" id="classPeriod1" name="classPeriod1">
+        <option value="">Select Teacher</option>
+        <option th:each="teacher : ${teachers}"
+                th:text="${teacher.name}"></option>
+    </select>
+</div>
+
+    <div class="col-lg-10" th:object="${classroom}">
+        <label th:for="classPeriod1">Period 2</label>
+        <select class="form-control" id="classPeriod2" name="classPeriod2">
+            <option value="">Select Teacher</option>
+            <option th:each="teacher : ${teachers}"
+                    th:text="${teacher.name}"></option>
+        </select>
+    </div>
+
+    <div class="col-lg-10" th:object="${classroom}">
+        <label th:for="classPeriod1">Period 3</label>
+        <select class="form-control" id="classPeriod3" name="classPeriod3">
+            <option value="">Select Teacher</option>
+            <option th:each="teacher : ${teachers}"
+                    th:text="${teacher.name}"></option>
+        </select>
+    </div>
+
+    <div class="col-lg-10" th:object="${classroom}">
+        <label th:for="classPeriod1">Period 4</label>
+        <select class="form-control" id="classPeriod4" name="classPeriod4">
+            <option value="">Select Teacher</option>
+            <option th:each="teacher : ${teachers}"
+                    th:text="${teacher.name}"></option>
+        </select>
+    </div>
+
+    <p></p>
+    <p></p>
+    <p></p>
+    <div class="col-lg-10" th:object="${classroom}">
+        <label th:for="classPeriod1">Period 5</label>
+        <select class="form-control" id="classPeriod5" name="classPeriod5">
+            <option value="">Select Teacher</option>
+            <option th:each="teacher : ${teachers}"
+                    th:text="${teacher.name}"></option>
+        </select>
+    </div>
+
+
+
+
+    <input type="submit" value="Add Classroom" />
+</form>
+</body>
+
+</html>

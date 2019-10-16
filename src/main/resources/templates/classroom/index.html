@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head" ></head>
+<body>
+
+<h1 th:text="${title}">Classroom Management</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<table class="table">
+
+    <tr>
+        <th>Classroom Name</th>
+        <th>Period 1</th>
+        <th>Period 2</th>
+        <th>Period 3</th>
+        <th>Period 4</th>
+        <th>Period 5</th>
+        <th>ID</th>
+
+
+    </tr>
+
+    <tr th:each="classroom : ${classrooms}">
+        <td th:text="${classroom.classroomName}"></td>
+        <td th:text="${classroom.classPeriod1}"></td>
+        <td th:text="${classroom.classPeriod2}"></td>
+        <td th:text="${classroom.classPeriod3}"></td>
+        <td th:text="${classroom.classPeriod4}"></td>
+        <td th:text="${classroom.classPeriod5}"></td>
+        <td th:text="${classroom.id}"></td>
+        <td><a th:href="@{'/classroom/edit/' + ${classroom.Id}}" >edit</a></td>
+    </tr>
+</table>
+
+
+<a href="/classroom/add" style="color:green"><b>Add</b></a> |
+<a href="/classroom/remove" style="color:green"><b>Remove</b></a>
+</body>
+</html>
